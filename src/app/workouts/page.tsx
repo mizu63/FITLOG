@@ -24,16 +24,16 @@ const workoutsPage = async () => {
 
   return (
     <>
-      {/* Banner */}
+   
       <Banner />
 
-      {/* Workout Library */}
+
       <section className="bg-[#111214] py-10">
         <div className="container mx-auto px-6">
 
-          {/* Section Heading */}
+    
           <div className="mb-5">
-            <h2 className="text-[#FFFFFF] text-[30px] font-bold border border-blue-500 px-1">
+            <h2 className="text-[#FFFFFF] text-[30px] font-bold ">
               THE LIBRARY
             </h2>
 
@@ -42,7 +42,7 @@ const workoutsPage = async () => {
             </p>
           </div>
 
-          {/* Workout Cards */}
+      
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
             {workouts.map((workout) => (
@@ -52,7 +52,7 @@ const workoutsPage = async () => {
                 className="bg-[#16181D] rounded-lg overflow-hidden block hover:scale-[1.02] transition duration-200"
               >
 
-                {/* Image */}
+         
                 <div className="relative w-full h-[180px]">
                   <Image
                     src={workout.image}
@@ -62,10 +62,10 @@ const workoutsPage = async () => {
                   />
                 </div>
 
-                {/* Card Content */}
+        
                 <div className="p-3">
 
-                  {/* Muscle Groups */}
+              
                   <div className="flex gap-2 mb-2 mt-1">
                     {workout.muscleGroups.map((muscle) => (
                       <span
@@ -77,17 +77,17 @@ const workoutsPage = async () => {
                     ))}
                   </div>
 
-                  {/* Name */}
+                
                   <h3 className="text-white text-[18px] font-bold uppercase">
                     {workout.name}
                   </h3>
 
-                  {/* Equipment */}
+           
                   <p className="text-[#9CA3AF] text-[12px] font-normal mt-1">
                     {workout.equipment}
                   </p>
 
-                  {/* Bottom Information */}
+      
                   <div className="border-t border-[#24262C] mt-4 pt-2 flex items-center gap-4">
 
                     <span className="text-[#9CA3AF] text-[12px] font-normal">

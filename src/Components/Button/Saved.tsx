@@ -9,9 +9,12 @@ const Saved = ({ exercise }: { exercise: AType }) => {
 
   if (!context) return null;
 
-  const { setSaved } = context;
+const { saved, setSaved } = context;
 
   const handleSave = () => {
+    const alreadySaved = saved.some((item) => item.id === exercise.id);
+
+  if (alreadySaved) return;
     setSaved((prev) => [...prev, exercise]);
   };
 

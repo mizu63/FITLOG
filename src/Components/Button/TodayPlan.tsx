@@ -9,9 +9,14 @@ const TodayPlan = ({ exercise }: { exercise: AType }) => {
 
   if (!context) return null;
 
-  const { setTodayPlan } = context;
+const { todayPlan, setTodayPlan } = context;
 
   const handleAddToPlan = () => {
+     const alreadyAdded = todayPlan.some(
+    (item) => item.id === exercise.id
+  );
+
+  if (alreadyAdded) return;
     setTodayPlan((prev) => [...prev, exercise]);
   };
 

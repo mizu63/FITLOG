@@ -39,11 +39,7 @@ async function getExercise(id: string): Promise<Exercise | null> {
   );
 }
 
-export default async function ExercisePage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function ExercisePage({ params,}: { params: Promise<{ id: string }>;}) {
   const { id } = await params;
 
   const exercise = await getExercise(id);
