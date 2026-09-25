@@ -7,7 +7,7 @@ import { AType } from '@/Components/type/page';
 
 const getWorkouts = async (): Promise<AType[]> => {
   const res = await fetch(
-    'https://api.abcz.workers.dev/api/fitlog'
+    "https://api.abcz.workers.dev/api/fitlog"
   );
 
   if (!res.ok) {
