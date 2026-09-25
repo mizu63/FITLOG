@@ -1,4 +1,3 @@
-
 "use client";
 
 import { AType } from "@/Components/type/page";
@@ -11,7 +10,7 @@ interface CardContextType {
   saved: AType[];
   setSaved: React.Dispatch<React.SetStateAction<AType[]>>;
 
-  removeWorkout: (id: number) => void;
+  removeWorkout: (id: number, type: "today" | "saved") => void;
 }
 
 export const Cardprovider = createContext<CardContextType | undefined>(
@@ -22,14 +21,18 @@ const Cardcontext = ({ children }: { children: React.ReactNode }) => {
   const [todayPlan, setTodayPlan] = useState<AType[]>([]);
   const [saved, setSaved] = useState<AType[]>([]);
 
-  const removeWorkout = (id: number) => {
-    setTodayPlan((prev) =>
-      prev.filter((workout) => workout.id !== id)
-    );
+  const removeWorkout = (id: number, type: "today" | "saved") => {
+    if (type === "today") {
+      setTodayPlan((prev) =>
+        prev.filter((workout) => workout.id !== id)
+      );
+    }
 
-    setSaved((prev) =>
-      prev.filter((workout) => workout.id !== id)
-    );
+    if (type === "saved") {
+      setSaved((prev) =>
+        prev.filter((workout) => workout.id !== id)
+      );
+    }
   };
 
   const contextValue = {

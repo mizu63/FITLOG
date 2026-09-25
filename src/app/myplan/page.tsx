@@ -15,7 +15,7 @@ const MYPlanPage = () => {
 
   if (!context) return null;
 
-  const { todayPlan, saved,removeWorkout } = context;
+  const { todayPlan, saved, removeWorkout } = context;
 
   const currentExercises =
     activeTab === "today" ? todayPlan : saved;
@@ -86,8 +86,8 @@ const MYPlanPage = () => {
           <button
             onClick={() => setActiveTab("today")}
             className={`px-5 py-1 ${activeTab === "today"
-                ? "border border-[#283A4A] bg-[#102030] text-[#C2F800]"
-                : "text-[#A1A6AF]"
+              ? "border border-[#283A4A] bg-[#102030] text-[#C2F800]"
+              : "text-[#A1A6AF]"
               }`}
           >
             Today's Plan
@@ -96,8 +96,8 @@ const MYPlanPage = () => {
           <button
             onClick={() => setActiveTab("saved")}
             className={`px-5 py-1 ${activeTab === "saved"
-                ? "border border-[#283A4A] bg-[#102030] text-[#C2F800]"
-                : "text-[#A1A6AF]"
+              ? "border border-[#283A4A] bg-[#102030] text-[#C2F800]"
+              : "text-[#A1A6AF]"
               }`}
           >
             Saved
@@ -203,16 +203,16 @@ const MYPlanPage = () => {
                       ✓ Mark as Done
                     </button>
 
-                  <button
-  type="button"
-  onClick={(e) => {
-    e.stopPropagation();
-    removeWorkout(exercise.id);
-  }}
-  className="ml-1 text-sm text-[#A1A6AF] hover:text-white"
->
-  ×
-</button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeWorkout(exercise.id, activeTab);
+                      }}
+                      className="ml-1 text-sm text-[#A1A6AF] hover:text-white"
+                    >
+                      ×
+                    </button>
                   </div>
                 </div>
               </div>
