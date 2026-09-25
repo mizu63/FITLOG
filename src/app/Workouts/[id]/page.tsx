@@ -1,3 +1,5 @@
+import Saved from "@/Components/Button/Saved";
+import TodayPlan from "@/Components/Button/TodayPlan";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -184,14 +186,9 @@ export default async function ExercisePage({
 
             <div className="mt-4 flex gap-2">
 
-              <button className="rounded-md bg-[#d9ff00] px-3 py-2 text-[9px] font-bold text-black">
-                ✓ Add to today's plan
-              </button>
+              <TodayPlan exercise={exercise}/>
 
-              <button className="rounded-md border border-[#383d46] px-3 py-2 text-[9px] text-gray-300">
-                ♡ Save for later
-              </button>
-
+              <Saved exercise={exercise} />
             </div>
 
           </div>
