@@ -25,7 +25,7 @@ const workoutsPage = async () => {
   return (
     <>
 
-      <Banner />
+
 
 
       <section className="bg-[#111214] py-10">

@@ -21,6 +21,10 @@ const Cardcontext = ({ children }: { children: React.ReactNode }) => {
   const [todayPlan, setTodayPlan] = useState<AType[]>([]);
   const [saved, setSaved] = useState<AType[]>([]);
 
+  
+
+
+
   const removeWorkout = (id: number, type: "today" | "saved") => {
     if (type === "today") {
       setTodayPlan((prev) =>

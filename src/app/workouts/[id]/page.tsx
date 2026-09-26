@@ -32,6 +32,7 @@ async function getExercise(id: string): Promise<Exercise | null> {
 
   const exercises: Exercise[] = await res.json();
 
+  
   return (
     exercises.find(
       (exercise) => exercise.id === Number(id)
