@@ -24,24 +24,31 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <section className="container mx-auto">
-      <nav className="flex justify-between items-center py-5 px-1">
+    <section className="container mx-auto px-3 sm:px-5">
+      <nav className="flex items-center justify-between gap-3 py-4 sm:py-5">
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image src={ImageLogo} alt="Logo" />
+  
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-2.5"
+        >
+          <Image
+            src={ImageLogo}
+            alt="Logo"
+            className="h-auto w-auto"
+          />
 
-          <h1 className="text-[18px] text-[#FFFFFF] leading-5">
+          <h1 className="text-[16px] leading-5 text-[#FFFFFF] sm:text-[18px]">
             FITLOG
           </h1>
         </Link>
 
-        {/* Navigation */}
-        <ul className="flex items-center gap-6">
+   
+        <ul className="flex items-center gap-1.5 sm:gap-4 md:gap-6">
           <li
-            className={`text-[12px] leading-3 font-medium ${
+            className={`text-[10px] font-medium leading-3 sm:text-[12px] ${
               pathname === links.workout
-                ? "text-[#C2F800] bg-[#1A2312] py-1.5 px-6 rounded-2xl"
+                ? "rounded-2xl bg-[#1A2312] px-3 py-1.5 text-[#C2F800] sm:px-6"
                 : "text-[#9CA3AF]"
             }`}
           >
@@ -51,9 +58,9 @@ const Navbar = () => {
           </li>
 
           <li
-            className={`text-[12px] leading-3 font-medium ${
+            className={`text-[10px] font-medium leading-3 sm:text-[12px] ${
               pathname === links.myplan
-                ? "text-[#C2F800] bg-[#1A2312] py-1.5 px-6 rounded-2xl"
+                ? "rounded-2xl bg-[#1A2312] px-3 py-1.5 text-[#C2F800] sm:px-6"
                 : "text-[#9CA3AF]"
             }`}
           >
@@ -63,22 +70,29 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Plan & Saved */}
-        <Link href={links.myplan}>
-          <div className="flex items-center gap-2.5">
+   
+        <Link
+          href={links.myplan}
+          className="shrink-0"
+        >
+          <div className="flex items-center gap-1 sm:gap-2.5">
 
-            <div className="flex items-center gap-1 text-[12px] font-medium leading-2.5 text-[#D1D5DB] py-2 px-4">
-              Plan
+            <div className="flex items-center gap-1 px-1 py-1.5 text-[9px] font-medium leading-3 text-[#D1D5DB] sm:px-2 sm:text-[12px]">
+              <span className="hidden xs:inline sm:inline">
+                Plan
+              </span>
 
-              <span className="bg-[#C2F800] text-black w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C2F800] text-[9px] text-black">
                 {todayPlan.length}
               </span>
             </div>
 
-            <div className="flex items-center gap-1 text-[12px] font-medium leading-2.5 text-[#D1D5DB] py-2 px-4">
-              Saved
+            <div className="flex items-center gap-1 px-1 py-1.5 text-[9px] font-medium leading-3 text-[#D1D5DB] sm:px-2 sm:text-[12px]">
+              <span className="hidden xs:inline sm:inline">
+                Saved
+              </span>
 
-              <span className="bg-[#C2F800] text-black w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C2F800] text-[9px] text-black">
                 {saved.length}
               </span>
             </div>
@@ -92,4 +106,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
