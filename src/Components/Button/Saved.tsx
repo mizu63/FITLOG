@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import { AType } from "@/Components/type/page";
 import { Cardprovider } from "@/context/Cardcontext";
+import { toast } from "react-toastify";
 
 const Saved = ({ exercise }: { exercise: AType }) => {
   const context = useContext(Cardprovider);
@@ -16,6 +17,7 @@ const { saved, setSaved } = context;
 
   if (alreadySaved) return;
     setSaved((prev) => [...prev, exercise]);
+    toast.success("Workout Saved!");
   };
 
   return (

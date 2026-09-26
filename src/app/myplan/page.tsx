@@ -198,6 +198,10 @@ const MYPlanPage = () => {
                     </Link>
                     <button
                       type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeWorkout(exercise.id, activeTab);
+                      }}
                       className="rounded-full bg-[#C2F800] px-4 py-1.5 text-[10px] font-bold text-black transition hover:bg-[#D5FF3D]"
                     >
                       ✓ Mark as Done

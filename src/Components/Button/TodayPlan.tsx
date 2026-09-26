@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import { AType } from "@/Components/type/page";
 import { Cardprovider } from "@/context/Cardcontext";
+import { toast } from "react-toastify";
 
 const TodayPlan = ({ exercise }: { exercise: AType }) => {
   const context = useContext(Cardprovider);
@@ -18,6 +19,7 @@ const { todayPlan, setTodayPlan } = context;
 
   if (alreadyAdded) return;
     setTodayPlan((prev) => [...prev, exercise]);
+    toast.success("Workout TodayPlan!");
   };
 
   return (

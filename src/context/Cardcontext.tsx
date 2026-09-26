@@ -1,7 +1,7 @@
 "use client";
 
 import { AType } from "@/Components/type/page";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 interface CardContextType {
   todayPlan: AType[];
@@ -21,10 +21,40 @@ const Cardcontext = ({ children }: { children: React.ReactNode }) => {
   const [todayPlan, setTodayPlan] = useState<AType[]>([]);
   const [saved, setSaved] = useState<AType[]>([]);
 
+
+  // **********************************
+
+
+ const [isLoaded, setIsLoaded] = useState(false);
+
+useEffect(() => {
+  const storedTodayPlan = localStorage.getItem("todayPlan");
+  const storedSaved = localStorage.getItem("saved");
+
+  if (storedTodayPlan) {
+    setTodayPlan(JSON.parse(storedTodayPlan));
+  }
+
+  if (storedSaved) {
+    setSaved(JSON.parse(storedSaved));
+  }
+
+  setIsLoaded(true);
+}, []);
+
+useEffect(() => {
+  if (!isLoaded) return;
+
+  localStorage.setItem("todayPlan", JSON.stringify(todayPlan));
+  localStorage.setItem("saved", JSON.stringify(saved));
+}, [todayPlan, saved, isLoaded]);
+
+
+
+
+  //  **********************
+
   
-
-
-
   const removeWorkout = (id: number, type: "today" | "saved") => {
     if (type === "today") {
       setTodayPlan((prev) =>
